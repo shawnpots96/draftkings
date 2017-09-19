@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+	<title>Draftkings application</title>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="CSS/theme.css">
+	<script src="https://code.highcharts.com/stock/highstock.js"></script>
+	<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+	<script type="text/javascript" src="JS/Historical.js" ></script>
+	
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+	<div id="Main">
+		<div id="Header">
+			<div class="tab">
+				<button onclick="location.href='index.php';">Home</button>
+				<button onclick="location.href='Historical.php';">Historical</button>
+				<button onclick="location.href='Models.php';">Models</button>
+			</div>
+		</div>
+		<div id="Middle" class="Mid">
+			<div id="Dashboard"></div>
+			<div id="slider">
+				<span id="slidertext">I expect this player to perform above X% of players</span>
+			</div>
+		</div>
+		<div id="Right" class="Mid">
+			<p> 1) Select a position to load</p>
+			<button onclick=LoadList("QB")>QB</button>
+			<button onclick=LoadList("RB")>RB</button>
+			<button onclick=LoadList("WR")>WR</button>
+			<button onclick=LoadList("TE")>TE</button>
+			<button onclick=LoadList("DST")>DST</button>
+			<p> 2) Select a player</p>
+			<select id="List"></select>
+			<p> 3) Select <input type="button" onclick="main()" value="Go"> </p>
+		</div>
+	</div>
+	
+</body>
+</html>
