@@ -18,6 +18,7 @@
 			<div class="tab">
 				<button onclick="">Home</button>
 				<button onclick="">Historical</button>
+				<button onclick="">Test1</button>
 			</div>
 		</div>
 		<div id="Middle">
