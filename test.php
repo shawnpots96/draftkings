@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-	<title>Draftkings application</title>
+	<title>Draftkings application PHP</title>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="CSS/theme.css">
 	<script src="https://code.highcharts.com/stock/highstock.js"></script>
