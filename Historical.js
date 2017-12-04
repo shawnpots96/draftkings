@@ -9,6 +9,16 @@ function LoadList (Indicator) {
 	while (x.length > 0) {x.remove(x.length-1);}
 
 	alert("List dropdown is empty");
+
+	$.post("Load.php",
+	{
+		name: "Donald Duck",
+		city: "Duckburg"
+	},
+	function(data, status){
+		alert("Data: " + data + "\nStatus: " + status);
+	});
+
     
     	//Get Position player list into dropdown
 	$.post(
