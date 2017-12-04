@@ -3,7 +3,6 @@ $(document).ready(function(){
 	LoadList("QB");
 });
 function LoadList (Indicator) {
-	alert("I am in LoadList");
 	
 	//Remove existing List options
 	var x = document.getElementById("List");
