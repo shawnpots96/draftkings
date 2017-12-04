@@ -1,19 +1,25 @@
 $(document).ready(function(){
-	alert("Hello! I am an alert box!!");
+	alert("I am inside .ready");
 	LoadList("QB");
 });
 function LoadList (Indicator) {
+	alert("I am in LoadList");
+	
 	//Remove existing List options
 	var x = document.getElementById("List");
-    while (x.length > 0) {x.remove(x.length-1);}
+	while (x.length > 0) {x.remove(x.length-1);}
+
+	alert("List dropdown is empty");
     
-    //Get Position player list into dropdown
+    	//Get Position player list into dropdown
 	$.post(
 		'../PHP/Load.php',
 		{postPosition: Indicator},
 		function(data){
+			alert("I am in .post");
 			PlayerList = JSON.parse(data);
 			for (i=0; i < PlayerList.length; i++) {
+				alert("Adding to List");
 				var option = document.createElement("option");
 				option.text = PlayerList[i];
 				document.getElementById("List").add(option);
