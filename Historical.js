@@ -12,7 +12,7 @@ function LoadList (Indicator) {
     
     	//Get Position player list into dropdown
 	$.post(
-		'../Load.php',
+		'Load.php',
 		{postPosition: Indicator},
 		function(data){
 			alert("I am in .post");
