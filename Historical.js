@@ -12,7 +12,7 @@ function LoadList (Indicator) {
     
     	//Get Position player list into dropdown
 	$.post(
-		'../PHP/Load.php',
+		'../Load.php',
 		{postPosition: Indicator},
 		function(data){
 			alert("I am in .post");
@@ -25,9 +25,11 @@ function LoadList (Indicator) {
 			}
 		}
 	)
+	alert("Outside post");
 	main(50,null)
 }
 function main (normal,updateShowData) {
+	alert("Inside Main");
 	Dashboard (normal,updateShowData);
 	Projection ();
 }
