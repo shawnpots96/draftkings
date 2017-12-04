@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	alert("hello");
+	alert("Hello! I am an alert box!!");
 	LoadList("QB");
 });
 function LoadList (Indicator) {
