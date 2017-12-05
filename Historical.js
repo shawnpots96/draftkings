@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	alert("I am inside .ready sHAWN");
+	//alert("I am inside .ready sHAWN");
 	LoadList("QB");
 });
 function LoadList (Indicator) {
@@ -25,48 +25,14 @@ function LoadList (Indicator) {
 			}
 		}
 	)
-	$.post(
-		'./PHP/Load.php',
-		{postPosition: Indicator},
-		function(data){
-			alert("I am in .post with 1 period and into folder");
-			PlayerList = JSON.parse(data);
-			for (i=0; i < PlayerList.length; i++) {
-				alert("Adding to List");
-				var option = document.createElement("option");
-				option.text = PlayerList[i];
-				document.getElementById("List").add(option);
-			}
+	$.ajax({
+		data: 'orderid=' + your_order_id,
+		url: 'https://shawnpots96.github.io/draftkings/Load.php',
+		method: 'POST',
+		success: function(msg) {
+			alert("Inside ajex");
 		}
-	)
-	$.post(
-		'./Load.php',
-		{postPosition: Indicator},
-		function(data){
-			alert("I am in .post with 1 period and no folder");
-			PlayerList = JSON.parse(data);
-			for (i=0; i < PlayerList.length; i++) {
-				alert("Adding to List");
-				var option = document.createElement("option");
-				option.text = PlayerList[i];
-				document.getElementById("List").add(option);
-			}
-		}
-	)
-	$.post(
-		'Load.php',
-		{postPosition: Indicator},
-		function(data){
-			alert("I am in .post with no period and no folder");
-			PlayerList = JSON.parse(data);
-			for (i=0; i < PlayerList.length; i++) {
-				alert("Adding to List");
-				var option = document.createElement("option");
-				option.text = PlayerList[i];
-				document.getElementById("List").add(option);
-			}
-		}
-	)
+	});
 	alert("Outside post");
 	main(50,null)
 }
