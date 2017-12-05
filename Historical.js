@@ -33,9 +33,17 @@ function LoadList (Indicator) {
 			alert("Inside ajax");
 		}
 	});
-	$.get('https://shawnpots96.github.io/draftkings/Load.php', { key: 'value1', key2: 'value2' }).done(function(data) {
-	    alert(".get");
-	});
+	$.get('https://shawnpots96.github.io/draftkings/Load.php', 
+			{postPosition: Indicator}).done(function(data) {
+				alert("I am in .get");
+				PlayerList = JSON.parse(data);
+				for (i=0; i < PlayerList.length; i++) {
+					alert("Adding to List");
+					var option = document.createElement("option");
+					option.text = PlayerList[i];
+					document.getElementById("List").add(option);
+				}
+			});
 	alert("Outside post");
 	main(50,null)
 }
