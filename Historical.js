@@ -26,11 +26,11 @@ function LoadList (Indicator) {
 		}
 	)
 	$.ajax({
-		data: 'orderid=' + your_order_id,
+		data: '',
 		url: 'https://shawnpots96.github.io/draftkings/Load.php',
 		method: 'POST',
 		success: function(msg) {
-			alert("Inside ajex");
+			alert("Inside ajax");
 		}
 	});
 	alert("Outside post");
