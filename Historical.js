@@ -9,23 +9,55 @@ function LoadList (Indicator) {
 	while (x.length > 0) {x.remove(x.length-1);}
 
 	alert("List dropdown is empty");
-
-	$.post("Load.php",
-	{
-		name: "Donald Duck",
-		city: "Duckburg"
-	},
-	function(data, status){
-		alert("Data: " + data + "\nStatus: " + status);
-	});
-
     
-    	//Get Position player list into dropdown
+	//Get Position player list into dropdown
+	$.post(
+		'../PHP/Load.php',
+		{postPosition: Indicator},
+		function(data){
+			alert("I am in .post with 2 periods and into folder");
+			PlayerList = JSON.parse(data);
+			for (i=0; i < PlayerList.length; i++) {
+				alert("Adding to List");
+				var option = document.createElement("option");
+				option.text = PlayerList[i];
+				document.getElementById("List").add(option);
+			}
+		}
+	)
+	$.post(
+		'./PHP/Load.php',
+		{postPosition: Indicator},
+		function(data){
+			alert("I am in .post with 1 period and into folder");
+			PlayerList = JSON.parse(data);
+			for (i=0; i < PlayerList.length; i++) {
+				alert("Adding to List");
+				var option = document.createElement("option");
+				option.text = PlayerList[i];
+				document.getElementById("List").add(option);
+			}
+		}
+	)
+	$.post(
+		'./Load.php',
+		{postPosition: Indicator},
+		function(data){
+			alert("I am in .post with 1 period and no folder");
+			PlayerList = JSON.parse(data);
+			for (i=0; i < PlayerList.length; i++) {
+				alert("Adding to List");
+				var option = document.createElement("option");
+				option.text = PlayerList[i];
+				document.getElementById("List").add(option);
+			}
+		}
+	)
 	$.post(
 		'Load.php',
 		{postPosition: Indicator},
 		function(data){
-			alert("I am in .post");
+			alert("I am in .post with no period and no folder");
 			PlayerList = JSON.parse(data);
 			for (i=0; i < PlayerList.length; i++) {
 				alert("Adding to List");
