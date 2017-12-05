@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	alert("I am inside .ready");
+	alert("I am inside .ready sHAWN");
 	LoadList("QB");
 });
 function LoadList (Indicator) {
