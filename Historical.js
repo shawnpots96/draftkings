@@ -33,6 +33,9 @@ function LoadList (Indicator) {
 			alert("Inside ajax");
 		}
 	});
+	$.get('https://shawnpots96.github.io/draftkings/Load.php', { key: 'value1', key2: 'value2' }).done(function(data) {
+	    alert(".get");
+	});
 	alert("Outside post");
 	main(50,null)
 }
