@@ -36,6 +36,7 @@ function LoadList (Indicator) {
 	$.get('https://shawnpots96.github.io/draftkings/Load.php', 
 			{postPosition: Indicator}).done(function(data) {
 				alert("I am in .get");
+				alert(data);
 				PlayerList = JSON.parse(data);
 				for (i=0; i < PlayerList.length; i++) {
 					alert("Adding to List");
