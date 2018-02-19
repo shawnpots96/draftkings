@@ -7,13 +7,13 @@ catch(Exception $e) {
 	die($error);
 }
 
-$query = "SELECT * FROM Dogs";
+$query = "SELECT * FROM DKTable";
 
 if($result = $database->query($query, SQLITE_BOTH, $error)) {
 	print "<table border=1>";
-	print "<tr><td>Id</td><td>Breed</td><td>Name</td><td>Age</td></tr>";
+	print "<tr><td>YearWeek</td><td>Position</td><td>Player</td><td>ActualPts</td></tr>";
 	while($row = $result->fetch()) {
-		print "<tr><td>{$row['Id']}</td><td>{$row['Breed']}</td><td>{$row['Name']}</td><td>$row['Age']}</td></tr>";
+		print "<tr><td>{$row['YearWeek']}</td><td>{$row['Position']}</td><td>{$row['Player']}</td><td>$row['ActualPts']}</td></tr>";
 	}
 	print "</table>";
 }
