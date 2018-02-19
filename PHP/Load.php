@@ -1,34 +1,22 @@
 <?php
-	// Get Openshift values
-	define('HOST', getenv('OPENSHIFT_MYSQL_DB_HOST'));
-	define('USER',getenv('OPENSHIFT_MYSQL_DB_USERNAME'));
-	define('PASSWORD',getenv('OPENSHIFT_MYSQL_DB_PASSWORD'));
-	define('DATABASE',"draftkings");
-	
-	// Connect to database
-	$mysqli = new mysqli(HOST, USER, PASSWORD, DATABASE);
-	
-	// Check connection
-	if ($mysqli->connect_error) {
-	    die("Connection failed: " . $mysqli->connect_error);
-	}
-	
-	//Retrieve names from client-side
-	$Indicator = $_POST['postPosition'];
-	
-	//submit SQL query
-	$result = mysqli_query($mysqli,"SELECT DISTINCT Player FROM history WHERE Position='".$Indicator."' AND ActualPts = '' ORDER BY Player");
+class Config {
+    const PATH_TO_SQLITE_FILE = 'C:/sqlite/Draftkings.db';
+}
+class SQLiteConnection {
+    private $pdo;
+ 
+    public function connect() {
+        if ($this->pdo == null) {
+            $this->pdo = new \PDO("sqlite:" . Config::PATH_TO_SQLITE_FILE);
+        }
+        return $this->pdo;
+    }
+}
 
-	//Load data array
-	$data = array();
-	
-	while($r = mysqli_fetch_array($result)){ //loop through all rows of the $result while they exist
-		$row[0] = $r['Player'];
-	    array_push($data,$row);
-	}
-	
-	echo json_encode($data, JSON_NUMERIC_CHECK);
+$pdo = (new SQLiteConnection())->connect();
+if ($pdo != null)
+    echo 'Connected to the SQLite database successfully!';
+else
+    echo 'Whoops, could not connect to the SQLite database!';
 
-	// Close database connection
-	mysql_close($mysqli);
 ?>
